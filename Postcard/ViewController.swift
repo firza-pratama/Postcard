@@ -9,6 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var textEnterName: UITextField!
+    @IBOutlet weak var textEnterMessage: UITextField!
+    @IBOutlet weak var buttonSendMessage: UIButton!
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func buttonSendPressed(sender: UIButton) {
+        if (labelName.hidden == true) {
+            labelName.hidden = false
+        }
+        
+        labelName.text = textEnterMessage.text
+        labelName.textColor = UIColor.redColor()
+        
+        textEnterMessage.text = ""
+        textEnterMessage.resignFirstResponder()
+    
+        buttonSendMessage.setTitle("Message sent", forState: UIControlState.Normal)
+    }
 }
 
