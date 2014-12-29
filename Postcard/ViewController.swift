@@ -11,10 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelMessage: UILabel!
     @IBOutlet weak var textEnterName: UITextField!
     @IBOutlet weak var textEnterMessage: UITextField!
     @IBOutlet weak var buttonSendMessage: UIButton!
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,18 @@ class ViewController: UIViewController {
             labelName.hidden = false
         }
         
-        labelName.text = textEnterMessage.text
-        labelName.textColor = UIColor.redColor()
+        if (labelMessage.hidden == true) {
+            labelMessage.hidden = false
+        }
+        
+        labelName.text = textEnterName.text
+        labelName.textColor = UIColor.blueColor()
+        
+        labelMessage.text = textEnterMessage.text
+        labelMessage.textColor = UIColor.redColor()
+        
+        textEnterName.text = ""
+        textEnterName.resignFirstResponder()
         
         textEnterMessage.text = ""
         textEnterMessage.resignFirstResponder()
